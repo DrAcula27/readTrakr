@@ -19,13 +19,13 @@ function searchBooks(e) {
 }
 
 function displayResults(books) {
-  const resultsDiv = document.getElementById('results');
-  resultsDiv.innerHTML = '';
+  const resultsSection = document.getElementById('results');
+  resultsSection.innerHTML = '';
   const library = JSON.parse(localStorage.getItem('library')) || [];
 
   books.forEach((book) => {
-    const bookDiv = document.createElement('div');
-    bookDiv.className = 'book';
+    const bookArticle = document.createElement('article');
+    bookArticle.className = 'book';
 
     const title = book.title ? book.title : 'No title available';
     const author = book.author_name
@@ -41,7 +41,7 @@ function displayResults(books) {
       (libraryBook) => libraryBook.isbn === isbn
     );
 
-    bookDiv.innerHTML = `
+    bookArticle.innerHTML = `
       <img src="${coverUrl}" alt="Cover Image">
       <h3>${title}</h3>
       <p><strong>Author:</strong> ${author}</p>
@@ -53,7 +53,7 @@ function displayResults(books) {
       }
     `;
 
-    resultsDiv.appendChild(bookDiv);
+    resultsSection.appendChild(bookArticle);
   });
 }
 
@@ -69,7 +69,7 @@ function addToLibrary(title, author, isbn, coverUrl, button) {
   library.push(newBook);
   localStorage.setItem('library', JSON.stringify(library));
 
-  button.innerHTML = 'Already in Library';
+  button.innerHTML = 'Added to Library!';
   button.disabled = true;
 
   loadLibrary();
@@ -77,14 +77,14 @@ function addToLibrary(title, author, isbn, coverUrl, button) {
 
 function loadLibrary() {
   const library = JSON.parse(localStorage.getItem('library')) || [];
-  const libraryDiv = document.getElementById('library');
-  libraryDiv.innerHTML = '';
+  const librarySection = document.getElementById('library');
+  librarySection.innerHTML = '';
 
   library.forEach((book) => {
-    const bookDiv = document.createElement('div');
-    bookDiv.className = 'book';
+    const bookArticle = document.createElement('article');
+    bookArticle.className = 'book';
 
-    bookDiv.innerHTML = `
+    bookArticle.innerHTML = `
       <img src="${book.coverUrl}" alt="Cover Image">
       <h3>${book.title}</h3>
       <p><strong>Author:</strong> ${book.author}</p>
@@ -92,7 +92,7 @@ function loadLibrary() {
       <button class='remove' onclick='removeFromLibrary("${book.isbn}", this)'>Remove from Library</button>
     `;
 
-    libraryDiv.appendChild(bookDiv);
+    librarySection.appendChild(bookArticle);
   });
 }
 
@@ -101,6 +101,6 @@ function removeFromLibrary(isbn, button) {
   library = library.filter((book) => book.isbn !== isbn);
   localStorage.setItem('library', JSON.stringify(library));
 
-  const bookDiv = button.parentElement;
-  bookDiv.parentElement.removeChild(bookDiv);
+  const bookArticle = button.parentElement;
+  bookArticle.parentElement.removeChild(bookArticle);
 }
