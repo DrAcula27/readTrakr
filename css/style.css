@@ -6,6 +6,7 @@
   --secondary-light-color: #c1c4b5;
   --accent-color: #6b4514;
   --action-color: #82d46b;
+  --remove-color: #b01010;
 
   /* shadows */
   --action-box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.3);
@@ -133,8 +134,16 @@ main {
   cursor: pointer;
 }
 
+.book .remove {
+  background-color: var(--remove-color);
+}
+
 .book button:hover {
   background-color: #66a854;
+}
+
+.book .remove:hover {
+  background-color: var(--remove-color);
 }
 
 article {

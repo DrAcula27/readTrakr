@@ -5,7 +5,7 @@ searchButton.addEventListener('click', searchBooks);
 
 function searchBooks(e) {
   e.preventDefault();
-  
+
   const query = document.getElementById('searchInput').value;
   if (!query) {
     alert('Please enter a search query');
@@ -89,8 +89,18 @@ function loadLibrary() {
       <h3>${book.title}</h3>
       <p><strong>Author:</strong> ${book.author}</p>
       <p><strong>ISBN:</strong> ${book.isbn}</p>
+      <button class='remove' onclick='removeFromLibrary("${book.isbn}", this)'>Remove from Library</button>
     `;
 
     libraryDiv.appendChild(bookDiv);
   });
+}
+
+function removeFromLibrary(isbn, button) {
+  let library = JSON.parse(localStorage.getItem('library')) || [];
+  library = library.filter((book) => book.isbn !== isbn);
+  localStorage.setItem('library', JSON.stringify(library));
+
+  const bookDiv = button.parentElement;
+  bookDiv.parentElement.removeChild(bookDiv);
 }
