@@ -80,7 +80,10 @@ This project can be improved by:
 
 - [ ] Refactoring the code to account for errors fetching data,
 - [ ] Replacing the alert with more custom functionality when telling the user a book is already in their library,
-- [ ] Adding a `Clear Search Results` button.
+- [ ] Adding a `Clear Search Results` button,
+- [x] Ensuring all book cover images are the same size,
+- [ ] Adding a confirmation modal when a user clicks the `Remove from Library` button on a book,
+- [ ] Adding a loading icon while the fetch is in progress.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
