@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <meta name="author" content="Danielle Andrews" />
+    <meta
+      name="description"
+      content="BookTrackr - a book tracking app"
+    />
+    <meta
+      name="keywords"
+      content="book, tracking, tracker, read, reading"
+    />
+
+    <title>ReadTrackr</title>
+
+    <script
+      src="https://kit.fontawesome.com/940af2685d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="icon" type="image/png" href="./img/favicon.ico" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script defer type="text/javascript" src="js/main.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1 class="title">ReadTrackr</h1>
+    </header>
+      <main class="container">
+        <form id="searchForm" class="search">
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Search by title, author, or ISBN"
+          />
+          <button type="submit" id="searchButton">
+            <i class="fa-solid fa-magnifying-glass"></i> Search
+          </button>
+        </form>
+        <section id="results" class="results">
+          <!-- Dynamically show book search results here -->
+        </section>
+        <h2>My Library</h2>
+        <section id="library" class="library">
+          <!-- Dynamically show books in local storage here -->
+        </section>
+      </main>
+    <footer>
+      <p>
+        ©
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        |
+        <span id="footer-span">
+          Crafted with <i class="fa-solid fa-heart"></i> by </span
+        >DrAcula27 |
+      </p>
+      <a href="https://github.com/DrAcula27" target="_blank">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <p>|</p>
+      <a
+        href="https://www.linkedin.com/in/daniellerandrews/"
+        target="_blank"
+      >
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+    </footer>
+  </body>
+</html>
